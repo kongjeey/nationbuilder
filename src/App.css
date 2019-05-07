@@ -1,11 +1,22 @@
+/*@font-face {*/
+  /*font-family: 'AktivGrotesk';*/
+  /*font-style: normal;*/
+  /*font-weight: 400;*/
+  /*src:*/
+    /*local('AktivGrotesk'),*/
+    /*local('AktivGrotesk_Rg'),*/
+    /*url('./assets/fonts/AktivGrotest_Rg.ttf') format('ttf');*/
+/*}*/
+
 .App {
-  text-align: center;
+  display: flex;
+  align-items: stretch;
+  background-color: #F0F0F0;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.App-body {
+  display: block;
+  flex: 1;
 }
 
 .App-header {
@@ -16,18 +27,15 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: pink;
 }
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.App-background {
+  flex: 1;
+  padding: 20px;
+  min-height: 100vh;
 }
