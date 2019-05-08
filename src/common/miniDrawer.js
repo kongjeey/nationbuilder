@@ -5,13 +5,11 @@ import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import Header from '../common/header';
-import { Defaults } from '../settings/defaults/defaults';
 import NationBuilderMark from '../assets/img/NationBuilderMark.png';
 import comboChart from '../assets/img/comboChart.png';
 import people from '../assets/img/people.png';
@@ -26,7 +24,8 @@ const drawerWidth = 240;
 const styles = theme => ({
   root: {
     display: 'flex',
-    height: '-webkit-fill-available'
+    height: '-webkit-fill-available',
+    width: '100%'
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -71,7 +70,7 @@ const styles = theme => ({
     overflowX: 'hidden',
     width: theme.spacing.unit * 7 + 1,
     [theme.breakpoints.up('sm')]: {
-      width: theme.spacing.unit * 9 + 1,
+      width: '92px'
     },
   },
   toolbar: {
@@ -84,7 +83,6 @@ const styles = theme => ({
   content: {
     flexGrow: 1,
     width: '100%',
-    // padding: theme.spacing.unit * 3,
   },
   span: {
     color: 'white'
@@ -100,12 +98,10 @@ class MiniDrawer extends React.Component {
 
   handleDrawerOpen = () => {
     this.setState({ open: true });
-    console.log('opening')
   };
 
   handleDrawerClose = () => {
     this.setState({ open: false });
-    console.log('closing')
   };
 
   onClickDrawerItem = (itemName) => {
@@ -119,7 +115,7 @@ class MiniDrawer extends React.Component {
 
   render() {
     const { classes, theme } = this.props;
-    const drawerList = ['Dashboard', 'People', 'Website', 'Communication', 'Finances', 'Nations', 'Settings'];
+    const drawerList = ['NationBuilder', 'Dashboard', 'People', 'Website', 'Communication', 'Finances', 'Nations', 'Settings'];
     const imageSrc = [NationBuilderMark, comboChart, people, webDesign, chat, creditCard, flowChart, tune];
 
     return (
@@ -140,25 +136,25 @@ class MiniDrawer extends React.Component {
           open={this.state.open}
           onMouseEnter={this.handleDrawerOpen}
           onMouseLeave={this.handleDrawerClose}>
-          <List style={{flex: 1, backgroundColor: 'black'}}>
+          <List style={{flex: 1, backgroundColor: 'black', padding: '28px'}}>
             {drawerList.map((text, index) => (
               <ListItem button key={text} onClick={() => this.onClickDrawerItem(text)}>
-
                 <ListItemIcon>
-                    <img src={imageSrc[index]}/>
+                    <img src={imageSrc[index]} style={text === 'NationBuilder' ? {marginLeft: '-12px'} : {}}/>
                 </ListItemIcon>
-
-                <ListItemText primary={<span style={{color: 'white'}}>{text}</span>}/>
+                <ListItemText
+                  primary={
+                    <span style={text === 'NationBuilder' ?
+                      {color: 'white', fontSize: '20px', fontWeight: 'bold', marginLeft: '-20px'} :
+                      {color: 'white'}}>{text}
+                    </span>}
+                />
               </ListItem>
             ))}
           </List>
         </Drawer>
         <main className={classes.content}>
-          {/*<div className={classes.toolbar} />*/}
           <Header headerTitle={this.state.selectedHeaderTitle} />
-          {/*{this.state.clickedItemName &&*/}
-            {/*<Defaults/>*/}
-          {/*}*/}
         </main>
       </div>
     );

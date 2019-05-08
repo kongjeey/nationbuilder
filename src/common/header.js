@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
@@ -10,7 +9,7 @@ import { Defaults } from "../settings/defaults/defaults";
 
 function TabContainer(props) {
   return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
+    <Typography component="div" style={{marginTop: '24px'}}>
       {props.children}
     </Typography>
   );
@@ -24,7 +23,7 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
-  },
+},
   headerTitle: {
     fontFamily: 'Helvetica',
     fontSize: '30px',
@@ -101,19 +100,23 @@ class Header extends Component {
     ];
 
     return (
-      <div style={{width: '100%', height: '147px' }}>
-        <div className={classes.headerTitle}>{this.props.headerTitle}</div>
+      <div style={{width: '100%', height: '147px', backgroundColor: 'white', boxShadow: '0px 1px 5px 0px rgba(0,0,0,0.2), 0px 2px 2px 0px rgba(0,0,0,0.14), 0px 3px 1px -2px rgba(0,0,0,0.12)'}}>
+        <div className={classes.headerTitle} style={{padding: '20px'}}>{this.props.headerTitle}</div>
 
         {this.props.headerTitle && this.props.headerTitle === 'Settings' &&
-          <div className={classes.root}>
-            <AppBar position="static">
-              <Tabs value={value} onChange={this.handleChange}>
-              {headerTabs && headerTabs.map(tab => {
-                  return (<Tab label={tab.header} />)
-                })
-              }
-              </Tabs>
-            </AppBar>
+          <div className={classes.root} >
+            <Tabs
+              value={value}
+              onChange={this.handleChange}
+              indicatorColor="primary"
+              textColor="primary"
+              variant="scrollable"
+              scrollButtons="auto">
+            {headerTabs && headerTabs.map(tab => {
+                return (<Tab label={tab.header} style={{outline: 'none', minWidth: 'auto'}} />)
+              })
+            }
+            </Tabs>
           </div>
         }
 

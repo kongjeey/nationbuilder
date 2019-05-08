@@ -1,7 +1,7 @@
 import React from 'react';
 
-import './App.css';
 import MiniDrawer from './common/miniDrawer';
+import './App.css';
 
 const App = () => (
   <div className="App">

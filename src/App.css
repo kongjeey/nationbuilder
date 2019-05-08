@@ -1,41 +1,5 @@
-/*@font-face {*/
-  /*font-family: 'AktivGrotesk';*/
-  /*font-style: normal;*/
-  /*font-weight: 400;*/
-  /*src:*/
-    /*local('AktivGrotesk'),*/
-    /*local('AktivGrotesk_Rg'),*/
-    /*url('./assets/fonts/AktivGrotest_Rg.ttf') format('ttf');*/
-/*}*/
-
 .App {
   display: flex;
   align-items: stretch;
   background-color: #F0F0F0;
-}
-
-.App-body {
-  display: block;
-  flex: 1;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: pink;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.App-background {
-  flex: 1;
-  padding: 20px;
-  min-height: 100vh;
 }

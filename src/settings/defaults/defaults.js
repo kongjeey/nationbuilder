@@ -153,9 +153,7 @@ export class Defaults extends Component {
                 onSelectOption={(selectedRow) => this.onSelectOption(selectedRow)}/>
             }
           </Card.Body>
-
         </Card.Body>
-
       </Card>
     )
   }
